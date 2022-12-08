@@ -96,19 +96,24 @@ function clearDisplay() {
 
 function operate(operator, a, b) {
   if (operator === '+'){
-    return a + b;
+    return add(a,b);
   } else if (operator === '-') {
-    return a - b;
+    return subtract(a,b);
   } else if (operator === '*') {
-    return a * b;
+    return multiply(a,b);
   } else if (operator === '/') {
-    if (b === '0') {
+    if (b === 0) {
       return 'error';
     } else {
-      return a / b;
+      return divide(a,b);
     }
   }
 }
+
+let add = (a,b) => a + b;
+let subtract = (a,b) => a - b;
+let multiply = (a,b) => a * b;
+let divide = (a,b) => a / b;
 
 function roundAccurately(number, places) {
   return parseFloat(Math.round(number + 'e' + places) + 'e-' + places);
